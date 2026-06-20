@@ -38,7 +38,7 @@ export default function Login() {
   }
 
   return (
-    <Box minHeight="100vh" display="flex" alignItems="center" justifyContent="center" bgcolor="#f7f9fc">
+    <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: '#f7f9fc' }}>
       <Container maxWidth="sm">
         <Paper elevation={0} sx={{ p: 5 }}>
           <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 600, letterSpacing: '-0.02em' }}>
