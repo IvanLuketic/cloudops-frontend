@@ -1,10 +1,12 @@
 ﻿import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { Container, Box, Typography, Card, Grid, Button, CircularProgress, Stack } from '@mui/material'
+import { Container, Box, Typography, Card, Grid, Button, CircularProgress, Stack, IconButton } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import CloudIcon from '@mui/icons-material/Cloud'
 import StorageIcon from '@mui/icons-material/Storage'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import DeleteIcon from '@mui/icons-material/Delete'
+import EditIcon from '@mui/icons-material/Edit'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://3.74.42.88:8081'
 
@@ -41,6 +43,29 @@ export default function Dashboard() {
       })
       .catch(() => setLoading(false))
   }, [router])
+
+  const handleDelete = async (id: number) => {
+    if (!confirm('Da li ste sigurni da želite da obrišete ovo okruženje?')) return
+    
+    const token = localStorage.getItem('token')
+    try {
+      const res = await fetch(`${API_URL}/api/v1/environments/${id}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      if (res.ok) {
+        setEnvironments(environments.filter(e => e.id !== id))
+      } else {
+        alert('Greška pri brisanju')
+      }
+    } catch {
+      alert('Mrežna greška')
+    }
+  }
+
+  const handleEdit = (id: number) => {
+    router.push(`/environments/edit/${id}`)
+  }
 
   const handleLogout = () => {
     localStorage.removeItem('token')
@@ -127,11 +152,31 @@ export default function Dashboard() {
           {environments.map((env: any) => (
             <Grid size={{ xs: 12, md: 4 }} key={env.id}>
               <Card sx={{ p: 2 }}>
-                <Typography variant="h6" sx={{ fontWeight: 500 }}>{env.name}</Typography>
-                <Typography variant="body2" color="text.secondary">{env.description}</Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
-                  <Typography variant="caption" color="text.secondary">{env.region}</Typography>
-                  <Typography variant="caption" sx={{ color: '#10b981' }}>{env.status}</Typography>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <Box>
+                    <Typography variant="h6" sx={{ fontWeight: 500 }}>{env.name}</Typography>
+                    <Typography variant="body2" color="text.secondary">{env.description}</Typography>
+                    <Box sx={{ display: 'flex', gap: 2, mt: 1 }}>
+                      <Typography variant="caption" color="text.secondary">{env.region}</Typography>
+                      <Typography variant="caption" sx={{ color: '#10b981' }}>{env.status}</Typography>
+                    </Box>
+                  </Box>
+                  <Box>
+                    <IconButton 
+                      size="small" 
+                      onClick={() => handleEdit(env.id)} 
+                      sx={{ color: '#6b7280' }}
+                    >
+                      <EditIcon fontSize="small" />
+                    </IconButton>
+                    <IconButton 
+                      size="small" 
+                      onClick={() => handleDelete(env.id)} 
+                      sx={{ color: '#ef4444' }}
+                    >
+                      <DeleteIcon fontSize="small" />
+                    </IconButton>
+                  </Box>
                 </Box>
               </Card>
             </Grid>
@@ -139,5 +184,5 @@ export default function Dashboard() {
         </Grid>
       )}
     </Container>
-   )
+  )
 }
