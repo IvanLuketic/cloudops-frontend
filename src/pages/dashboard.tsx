@@ -1,6 +1,6 @@
 ﻿import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { Container, Box, Typography, Card, CardContent, Grid, Button, CircularProgress, Stack } from '@mui/material'
+import { Container, Box, Typography, Card, Grid, Button, CircularProgress, Stack } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import CloudIcon from '@mui/icons-material/Cloud'
 import StorageIcon from '@mui/icons-material/Storage'
@@ -50,7 +50,7 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
         <CircularProgress sx={{ color: '#1a1a2e' }} />
       </Box>
     )
@@ -58,7 +58,7 @@ export default function Dashboard() {
 
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
-      <Box display="flex" justifyContent="space-between" alignItems="center" mb={5}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 5 }}>
         <Box>
           <Typography variant="h4" sx={{ fontWeight: 600, letterSpacing: '-0.02em' }}>
             Dashboard
@@ -84,7 +84,7 @@ export default function Dashboard() {
       <Grid container spacing={4} mb={5}>
         <Grid item xs={12} md={4}>
           <StatCard>
-            <Box display="flex" alignItems="center" gap={2}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <CloudIcon sx={{ color: '#1a1a2e' }} />
               <Box>
                 <Typography variant="body2" color="text.secondary">Environments</Typography>
@@ -95,7 +95,7 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} md={4}>
           <StatCard>
-            <Box display="flex" alignItems="center" gap={2}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <StorageIcon sx={{ color: '#1a1a2e' }} />
               <Box>
                 <Typography variant="body2" color="text.secondary">Status</Typography>
@@ -106,7 +106,7 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} md={4}>
           <StatCard>
-            <Box display="flex" alignItems="center" gap={2}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <CheckCircleIcon sx={{ color: '#1a1a2e' }} />
               <Box>
                 <Typography variant="body2" color="text.secondary">API</Typography>
@@ -129,7 +129,7 @@ export default function Dashboard() {
               <Card sx={{ p: 2 }}>
                 <Typography variant="h6" sx={{ fontWeight: 500 }}>{env.name}</Typography>
                 <Typography variant="body2" color="text.secondary">{env.description}</Typography>
-                <Box display="flex" justifyContent="space-between" mt={1}>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
                   <Typography variant="caption" color="text.secondary">{env.region}</Typography>
                   <Typography variant="caption" sx={{ color: '#10b981' }}>{env.status}</Typography>
                 </Box>
