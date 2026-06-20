@@ -92,7 +92,7 @@ export default function NewEnvironment() {
               <MenuItem key={r} value={r}>{r}</MenuItem>
             ))}
           </TextField>
-          <Stack direction="row" spacing={2} mt={4}>
+          <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
             <Button fullWidth variant="outlined" onClick={() => router.push('/dashboard')}>
               Cancel
             </Button>
