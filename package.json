@@ -1,7 +1,7 @@
 {
   "name": "cloudops-frontend",
   "version": "1.0.0",
-  "description": "CloudOps frontend - Next.js/React",
+  "description": "CloudOps frontend",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
@@ -27,4 +27,4 @@
     "@types/react": "^19.2.17",
     "typescript": "^6.0.3"
   }
-}}
+}
