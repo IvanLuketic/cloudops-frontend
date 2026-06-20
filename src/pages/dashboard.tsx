@@ -82,7 +82,7 @@ export default function Dashboard() {
       </Box>
 
       <Grid container spacing={4} sx={{ mb: 5 }}>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <StatCard>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <CloudIcon sx={{ color: '#1a1a2e' }} />
@@ -93,7 +93,7 @@ export default function Dashboard() {
             </Box>
           </StatCard>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <StatCard>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <StorageIcon sx={{ color: '#1a1a2e' }} />
@@ -104,7 +104,7 @@ export default function Dashboard() {
             </Box>
           </StatCard>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <StatCard>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <CheckCircleIcon sx={{ color: '#1a1a2e' }} />
@@ -125,7 +125,7 @@ export default function Dashboard() {
       ) : (
         <Grid container spacing={3}>
           {environments.map((env: any) => (
-            <Grid item xs={12} md={4} key={env.id}>
+            <Grid size={{ xs: 12, md: 4 }} key={env.id}>
               <Card sx={{ p: 2 }}>
                 <Typography variant="h6" sx={{ fontWeight: 500 }}>{env.name}</Typography>
                 <Typography variant="body2" color="text.secondary">{env.description}</Typography>
