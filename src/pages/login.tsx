@@ -78,7 +78,7 @@ export default function Login() {
               {loading ? 'Signing in...' : 'Sign In'}
             </Button>
           </form>
-          <Box textAlign="center" mt={3}>
+          <Box sx={{ textAlign: 'center', mt: 3 }}>
             <Typography variant="body2" color="text.secondary">
               Don't have an account?{' '}
               <Button color="inherit" onClick={() => router.push('/register')} sx={{ fontWeight: 500 }}>
