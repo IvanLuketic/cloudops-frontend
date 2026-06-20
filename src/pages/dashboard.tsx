@@ -81,7 +81,7 @@ export default function Dashboard() {
         </Stack>
       </Box>
 
-      <Grid container spacing={4} mb={5}>
+      <Grid container spacing={4} sx={{ mb: 5 }}>
         <Grid item xs={12} md={4}>
           <StatCard>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
