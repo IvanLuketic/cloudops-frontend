@@ -1,7 +1,7 @@
 {
   "name": "cloudops-frontend",
   "version": "1.0.0",
-  "description": "",
+  "description": "CloudOps frontend - Next.js/React",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
@@ -9,9 +9,8 @@
     "start": "next start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ivan Luketic",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -28,4 +27,4 @@
     "@types/react": "^19.2.17",
     "typescript": "^6.0.3"
   }
-}
+}}
