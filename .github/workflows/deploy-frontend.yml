@@ -8,6 +8,8 @@ on:
       - 'package.json'
       - 'next.config.js'
       - 'tsconfig.json'
+      - '.github/workflows/deploy-frontend.yml'
+  workflow_dispatch:
 
 jobs:
   deploy:
