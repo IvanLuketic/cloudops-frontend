@@ -5,3 +5,5 @@ const nextConfig = {
     NEXT_PUBLIC_API_URL: 'http://54.171.1.214:8080',
   },
 }
+
+module.exports = nextConfig
